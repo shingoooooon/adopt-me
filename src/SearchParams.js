@@ -1,8 +1,15 @@
 import { useState } from "react";
 
+const ANIMALS = ["dog", "cat", "bird", "rabbit", "reptile"];
+const BREEDS = []
+
 const SearchParams = () => {
   // const location = "Tokyo, Japan";
+
   const [location, setLocation] = useState("");
+  const [animal, setAnimal] = useState("");
+  const [breed, setBreed] = useState("");
+  const breeds = []
 
   return (
     <div className="search-params">
@@ -15,6 +22,48 @@ const SearchParams = () => {
             placeholder="Location"
             onChange={(e) => setLocation(e.target.value)}
           />
+        </label>
+        <label htmlFor="animal">
+          animal
+          <select
+            id="animal"
+            value={animal}
+            onChange={(e) => {
+              setAnimal(e.target.value);
+              setBreed("");
+            }}
+            onBlur={(e) => {
+              setAnimal(e.target.value);
+              setBreed("");
+            }}
+          >
+            <option />
+            {ANIMALS.map((animal) => (
+              <option key={animal} value={animal}>
+                {animal}
+              </option>
+            ))}
+
+        <label htmlFor="breed">
+          breed
+          <select
+            id="breed"
+            value={breed}
+            onChange={(e) => {
+              setBreed(e.target.value);
+            }}
+            onBlur={(e) => {
+              setBreed(e.target.value);
+            }}
+          >
+            <option />
+            {breeds.map((allBreed) => (
+              <option key={allBreed} value={allBreed}>
+                {allBreed}
+              </option>
+            ))}
+
+          </select>
         </label>
         <button>submit</button>
       </form>
