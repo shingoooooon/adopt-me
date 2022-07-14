@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "parcel index.html",
-    "format": "prettier --write \"**/*.{js,jsx}\"",
-    "format:check": "prettier --check \"**/*.{js,jsx}\"",
-    "lint": "eslint \"**/*.{js,jsx}\" --quiet"
+    "dev": "parcel src/index.html",
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet"
   },
   "keywords": [],
   "author": "",
