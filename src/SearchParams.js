@@ -84,6 +84,7 @@ const SearchParams = () => {
             </select>
           </label>
           <label htmlFor="theme">
+            Theme
             <select
               value={theme}
               onChange={(e) => setTheme(e.target.value)}
