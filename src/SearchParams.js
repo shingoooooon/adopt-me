@@ -28,75 +28,77 @@ const SearchParams = () => {
 
   return (
     <div className="search-params">
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          requestPets();
-        }}
-      >
-        <label htmlFor="location">
-          Location
-          <input
-            id="location"
-            value={location}
-            placeholder="Location"
-            onChange={(e) => updateLocation(e.target.value)}
-          />
-        </label>
-        <label htmlFor="animal">
-          Animal
-          <select
-            id="animal"
-            value={animal}
-            onChange={(e) => {
-              updateAnimal(e.target.value);
-              updateBreed("");
-            }}
-            onBlur={(e) => {
-              updateAnimal(e.target.value);
-              updateBreed("");
-            }}
-          >
-            <option />
-            {ANIMALS.map((animal) => (
-              <option key={animal} value={animal}>
-                {animal}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label htmlFor="breed">
-          Breed
-          <select
-            disabled={!breeds.length}
-            id="breed"
-            value={breed}
-            onChange={(e) => updateBreed(e.target.value)}
-            onBlur={(e) => updateBreed(e.target.value)}
-          >
-            <option />
-            {breeds.map((breed) => (
-              <option key={breed} value={breed}>
-                {breed}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label htmlFor="theme">
-          <select
-            value={theme}
-            onChange={(e) => setTheme(e.target.value)}
-            onBlur={(e) => setTheme(e.target.value)}
-          >
-            <option value="pink">pink</option>
-            <option value="green">green</option>
-            <option value="blue">blue</option>
-            <option value="red">red</option>
-            <option value="purple">purple</option>
-          </select>
-        </label>
-        <button style={{ backgroundColor: theme }}>Submit</button>
-      </form>
+      <div className="form-center">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            requestPets();
+          }}
+        >
+          <label htmlFor="location">
+            Location
+            <input
+              id="location"
+              value={location}
+              placeholder="Location"
+              onChange={(e) => updateLocation(e.target.value)}
+            />
+          </label>
+          <label htmlFor="animal">
+            Animal
+            <select
+              id="animal"
+              value={animal}
+              onChange={(e) => {
+                updateAnimal(e.target.value);
+                updateBreed("");
+              }}
+              onBlur={(e) => {
+                updateAnimal(e.target.value);
+                updateBreed("");
+              }}
+            >
+              <option />
+              {ANIMALS.map((animal) => (
+                <option key={animal} value={animal}>
+                  {animal}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label htmlFor="breed">
+            Breed
+            <select
+              disabled={!breeds.length}
+              id="breed"
+              value={breed}
+              onChange={(e) => updateBreed(e.target.value)}
+              onBlur={(e) => updateBreed(e.target.value)}
+            >
+              <option />
+              {breeds.map((breed) => (
+                <option key={breed} value={breed}>
+                  {breed}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label htmlFor="theme">
+            <select
+              value={theme}
+              onChange={(e) => setTheme(e.target.value)}
+              onBlur={(e) => setTheme(e.target.value)}
+            >
+              <option value="pink">pink</option>
+              <option value="green">green</option>
+              <option value="blue">blue</option>
+              <option value="red">red</option>
+              <option value="purple">purple</option>
+            </select>
+          </label>
+          <button style={{ backgroundColor: theme }}>Submit</button>
+        </form>
+      </div>
       <Results pets={pets} />
     </div>
   );

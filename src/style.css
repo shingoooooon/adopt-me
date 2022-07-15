@@ -15,6 +15,11 @@ body {
   margin: 0 auto;
 }
 
+.form-center {
+  display: flex;
+  justify-content: center;
+}
+
 .search-params form {
   border-radius: 6px;
   background: #faeff0;
